@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumud Satav | Software Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        /* Custom Tailwind Configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace']
+                    },
+                    colors: {
+                        primary: '#0A0A1A', /* Very dark blue/black */
+                        secondary: '#1A1A3A', /* Slightly lighter dark blue */
+                        accent: '#3A3A6A', /* Medium dark blue/purple */
+                        textLight: '#E0E0F0', /* Off-white/light blue */
+                        textDark: '#A0A0C0', /* Light grey/blue */
+                        gradientStart: '#8A2BE2', /* Electric Purple */
+                        gradientEnd: '#00C9A7', /* Vibrant Teal */
+                        tealAccent: '#00C9A7', /* Vibrant Teal */
+                        purpleAccent: '#8A2BE2' /* Electric Purple */
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-primary text-textLight font-sans antialiased overflow-x-hidden">
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="fixed inset-0 bg-primary flex items-center justify-center z-[9999] transition-opacity duration-500">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-primary/90 backdrop-blur-sm transition-all duration-300 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-gradient-to-r from-gradientStart to-gradientEnd bg-clip-text text-transparent">Kumud Satav</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="nav-link text-textLight hover:text-tealAccent transition duration-300">Home</a>
+                <a href="#about" class="nav-link text-textLight hover:text-tealAccent transition duration-300">About</a>
+                <a href="#skills" class="nav-link text-textLight hover:text-tealAccent transition duration-300">Skills</a>
+                <a href="#projects" class="nav-link text-textLight hover:text-tealAccent transition duration-300">Projects</a>
+                <a href="#achievements" class="nav-link text-textLight hover:text-tealAccent transition duration-300">Achievements</a>
+                <a href="#contact" class="nav-link text-textLight hover:text-tealAccent transition duration-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-textLight focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden fixed top-0 right-0 w-64 h-full bg-secondary transform translate-x-full transition-transform duration-300 ease-in-out p-6 pt-20 shadow-lg">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-textLight focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-6 text-xl">
+                <a href="#hero" class="mobile-nav-link text-textLight hover:text-tealAccent transition duration-300">Home</a>
+                <a href="#about" class="mobile-nav-link text-textLight hover:text-tealAccent transition duration-300">About</a>
+                <a href="#skills" class="mobile-nav-link text-textLight hover:text-tealAccent transition duration-300">Skills</a>
+                <a href="#projects" class="mobile-nav-link text-textLight hover:text-tealAccent transition duration-300">Projects</a>
+                <a href="#achievements" class="mobile-nav-link text-textLight hover:text-tealAccent transition duration-300">Achievements</a>
+                <a href="#contact" class="mobile-nav-link text-textLight hover:text-tealAccent transition duration-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-accent text-center px-6 py-20 overflow-hidden">
+            <div id="hero-background-parallax" class="absolute inset-0 pointer-events-none"></div>
+            <div class="relative z-10 max-w-4xl mx-auto animate-fade-in-up">
+                <img src="assets/" alt="Kumud Satav Profile" class="rounded-full w-40 h-40 mx-auto mb-8 border-4 border-tealAccent shadow-lg object-cover transform hover:scale-105 transition-transform duration-300">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white leading-tight">
+                    Hi, I'm <span class="text-gradient-to-r from-tealAccent to-purpleAccent bg-clip-text text-transparent">Kumud Satav</span>
+                </h1>
+                <p class="text-2xl md:text-3xl font-mono text-textLight mb-6 relative inline-block">
+                    <span id="typing-text"></span><span class="typing-cursor">|</span>
+                </p>
+                <p class="text-lg md:text-xl text-textDark mb-10 max-w-2xl mx-auto">
+                    Passionate Software Developer crafting innovative solutions with a focus on performance and user experience.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#projects" class="btn-primary bg-gradient-to-r from-tealAccent to-purpleAccent hover:from-purpleAccent hover:to-tealAccent transition duration-300 ease-in-out transform hover:-translate-y-1">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn-secondary border-2 border-tealAccent text-tealAccent hover:bg-tealAccent hover:text-white transition duration-300 ease-in-out transform hover:-translate-y-1">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-secondary px-6 animate-on-scroll">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="section-heading text-center mb-12">About Me</h2>
+                <div class="bg-accent p-8 rounded-lg shadow-xl animate-fade-in-up-delay">
+                    <p class="text-lg text-textLight mb-6 leading-relaxed">
+                        Hello! I'm Kumud Satav, a dedicated Software Developer with a strong foundation in Java and web technologies. My journey in software development is driven by a curiosity to build robust, scalable, and user-friendly applications that solve real-world problems.
+                    </p>
+                    <p class="text-lg text-textLight mb-6 leading-relaxed">
+                        My career objective is to leverage my technical skills and passion for innovation to contribute to impactful projects within a dynamic and collaborative environment. I am always eager to learn new technologies and improve my craft, ensuring I stay at the forefront of the ever-evolving tech landscape.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-tealAccent mb-4">Education</h3>
+                    <ul class="list-disc list-inside text-textDark space-y-2">
+                        <li>Bachelor of Technology in Computer Engineering - [University Name], [Year of Graduation]</li>
+                        <li>Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Web Development.</li>
+                    </ul>
+                    <div class="mt-8 text-center">
+                        <a href="#" download="Kumud_Satav_Resume.pdf" class="btn-primary bg-gradient-to-r from-purpleAccent to-tealAccent hover:from-tealAccent hover:to-purpleAccent transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-primary px-6 animate-on-scroll">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="section-heading text-center mb-12">My Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">Java</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">Spring Boot</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">HTML</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">CSS</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">JavaScript</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">MySQL</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">Git</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-accent p-6 rounded-lg shadow-xl animate-fade-in-up-delay">
+                        <h3 class="text-xl font-semibold text-tealAccent mb-4">GitHub</h3>
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-tealAccent to-purpleAccent h-3 rounded-full skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-secondary px-6 animate-on-scroll">
+            <div class="container mx-auto max-w-6xl">
+                <h2 class="section-heading text-center mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Project Card 1 -->
+                    <div class="project-card bg-accent rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 animate-fade-in-up-delay">
+                        <img src="https://placehold.co/400x250/2a2a2a/ffffff?text=Raksha" alt="Raksha App" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-tealAccent mb-3">Raksha – Women Safety Application</h3>
+                            <p class="text-textDark mb-4">A mobile application designed to enhance women's safety through real-time location sharing, emergency alerts, and a network of trusted contacts.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Android</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-textLight hover:text-purpleAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.09.39-1.983 1.029-2.685-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.702 1.028 1.595 1.028 2.685 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                                    GitHub
+                                </a>
+                                <a href="#" target="_blank" class="text-textLight hover:text-tealAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.589 4.5 4 8.089 4 12.5S7.589 20.5 12 20.5 20 16.911 20 12.5 16.411 4.5 12 4.5zm0 14c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5zm0-7c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5 2.5-1.119 2.5-2.5-1.119-2.5-2.5-2.5z"/></svg>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card bg-accent rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 animate-fade-in-up-delay">
+                        <img src="https://placehold.co/400x250/2a2a2a/ffffff?text=Attendance+System" alt="Attendance System" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-tealAccent mb-3">Student Attendance System using Face Recognition</h3>
+                            <p class="text-textDark mb-4">An automated attendance system leveraging computer vision for face recognition to accurately mark student presence in classrooms.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">OpenCV</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-textLight hover:text-purpleAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.09.39-1.983 1.029-2.685-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.702 1.028 1.595 1.028 2.685 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                                    GitHub
+                                </a>
+                                <a href="#" target="_blank" class="text-textLight hover:text-tealAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.589 4.5 4 8.089 4 12.5S7.589 20.5 12 20.5 20 16.911 20 12.5 16.411 4.5 12 4.5zm0 14c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5zm0-7c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5 2.5-1.119 2.5-2.5-1.119-2.5-2.5-2.5z"/></svg>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card bg-accent rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 animate-fade-in-up-delay">
+                        <img src="https://placehold.co/400x250/2a2a2a/ffffff?text=Library+System" alt="Library Management System" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-tealAccent mb-3">Library Management System Website</h3>
+                            <p class="text-textDark mb-4">A web-based system for managing library resources, including book cataloging, user registration, borrowing, and returns.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-textLight hover:text-purpleAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.09.39-1.983 1.029-2.685-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.702 1.028 1.595 1.028 2.685 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                                    GitHub
+                                </a>
+                                <a href="#" target="_blank" class="text-textLight hover:text-tealAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.589 4.5 4 8.089 4 12.5S7.589 20.5 12 20.5 20 16.911 20 12.5 16.411 4.5 12 4.5zm0 14c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5zm0-7c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5 2.5-1.119 2.5-2.5-1.119-2.5-2.5-2.5z"/></svg>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card bg-accent rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 animate-fade-in-up-delay">
+                        <img src="https://placehold.co/400x250/2a2a2a/ffffff?text=Spotify+Clone" alt="Spotify Clone" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-tealAccent mb-3">Spotify Clone Frontend</h3>
+                            <p class="text-textDark mb-4">A responsive web-based clone of the Spotify user interface, demonstrating modern frontend development skills and design.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-textLight hover:text-purpleAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.09.39-1.983 1.029-2.685-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.702 1.028 1.595 1.028 2.685 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                                    GitHub
+                                </a>
+                                <a href="#" target="_blank" class="text-textLight hover:text-tealAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.589 4.5 4 8.089 4 12.5S7.589 20.5 12 20.5 20 16.911 20 12.5 16.411 4.5 12 4.5zm0 14c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5zm0-7c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5 2.5-1.119 2.5-2.5-1.119-2.5-2.5-2.5z"/></svg>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card bg-accent rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 animate-fade-in-up-delay">
+                        <img src="https://placehold.co/400x250/2a2a2a/ffffff?text=Contact+System" alt="Secure Contact Management" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-tealAccent mb-3">Secure Contact Management System</h3>
+                            <p class="text-textDark mb-4">A robust web application for securely managing contacts, featuring user authentication, data encryption, and CRUD operations.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Spring Boot</span>
+                                <span class="tech-tag">Thymeleaf</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="#" target="_blank" class="text-textLight hover:text-purpleAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.09.39-1.983 1.029-2.685-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.702 1.028 1.595 1.028 2.685 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                                    GitHub
+                                </a>
+                                <a href="#" target="_blank" class="text-textLight hover:text-tealAccent transition duration-300 flex items-center">
+                                    <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.589 4.5 4 8.089 4 12.5S7.589 20.5 12 20.5 20 16.911 20 12.5 16.411 4.5 12 4.5zm0 14c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5zm0-7c-1.381 0-2.5 1.119-2.5 2.5s1.119 2.5 2.5 2.5 2.5-1.119 2.5-2.5-1.119-2.5-2.5-2.5z"/></svg>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-20 bg-primary px-6 animate-on-scroll">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="section-heading text-center mb-12">Achievements & Accomplishments</h2>
+                <div class="bg-accent p-8 rounded-lg shadow-xl animate-fade-in-up-delay">
+                    <ul class="list-disc list-inside text-textLight space-y-4 text-lg">
+                        <li><span class="font-semibold text-tealAccent">Certified Java Developer:</span> Successfully completed advanced Java certification, demonstrating expertise in core Java and enterprise applications.</li>
+                        <li><span class="font-semibold text-tealAccent">Software Developer Intern:</span> [Company Name], [Year] - Contributed to the development of [mention specific project/feature], gaining hands-on experience in [technologies].</li>
+                        <li><span class="font-semibold text-tealAccent">Hackathon Winner:</span> Awarded 1st place in the [Hackathon Name] for developing an innovative solution for [problem statement].</li>
+                        <li><span class="font-semibold text-tealAccent">Online Course Completions:</span> Completed several specialized courses on Spring Boot, Microservices, and Frontend Frameworks from platforms like Coursera/Udemy.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-secondary px-6 animate-on-scroll">
+            <div class="container mx-auto max-w-2xl">
+                <h2 class="section-heading text-center mb-12">Get in Touch</h2>
+                <div class="bg-accent p-8 rounded-lg shadow-xl animate-fade-in-up-delay">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-textLight text-sm font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                            <p class="text-red-400 text-sm mt-1 hidden" id="name-error">Name is required.</p>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-textLight text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                            <p class="text-red-400 text-sm mt-1 hidden" id="email-error">Please enter a valid email address.</p>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-textLight text-sm font-bold mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject of your message" required>
+                            <p class="text-red-400 text-sm mt-1 hidden" id="subject-error">Subject is required.</p>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-textLight text-sm font-bold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="6" class="form-textarea" placeholder="Your message..." required></textarea>
+                            <p class="text-red-400 text-sm mt-1 hidden" id="message-error">Message is required.</p>
+                        </div>
+                        <button type="submit" class="btn-primary w-full bg-gradient-to-r from-tealAccent to-purpleAccent hover:from-purpleAccent hover:to-tealAccent transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="form-success-message" class="mt-6 p-4 bg-green-600 text-white rounded-lg text-center hidden animate-fade-in-up">
+                        Thank you for your message! I'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-accent py-10 px-6 text-center">
+        <div class="container mx-auto">
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" class="text-textLight hover:text-tealAccent transition duration-300 transform hover:scale-110">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.828.092-.643.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.953 0-1.09.39-1.983 1.029-2.685-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.379.202 2.398.099 2.65.64.702 1.028 1.595 1.028 2.685 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://linkedin.com/in/kumudsatav" target="_blank" aria-label="LinkedIn" class="text-textLight hover:text-tealAccent transition duration-300 transform hover:scale-110">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.444-2.136 2.939v5.667H9.276V9.288h3.418v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.071 0-1.145.92-2.071 2.063-2.071 1.144 0 2.064.926 2.064 2.071 0 1.145-.921 2.071-2.064 2.071zm1.789 13.019H3.548V9.288h3.588v11.164z"/></svg>
+                </a>
+                <a href="mailto:your.email@example.com" aria-label="Email" class="text-textLight hover:text-tealAccent transition duration-300 transform hover:scale-110">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zm0 12H4V8.385l7.997 6.231L20 8.385V18z"/></svg>
+                </a>
+            </div>
+            <p class="text-textDark text-sm">&copy; <span id="current-year"></span> Kumud Satav. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>

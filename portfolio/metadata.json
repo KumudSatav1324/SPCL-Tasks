@@ -1,0 +1,14 @@
+{
+  "name": "Kumud Satav Portfolio",
+  "description": "A modern, professional, and responsive personal portfolio website for Software Developer Kumud Satav, featuring a fresh dark theme, interactive parallax background, and enhanced animations.",
+  "entry": "index.html",
+  "multiPage": false,
+  "files": [
+    "css/style.css",
+    "index.html",
+    "js/script.js",
+    "metadata.json"
+  ],
+  "tailwind": { "source": "play-cdn" },
+  "generatedAt": "2024-07-30T12:00:00Z"
+}
